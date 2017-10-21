@@ -1,0 +1,26 @@
+{
+  "name": "MyWebsite",
+  "dependencies": {
+    "bootstrap": "3.3.7"
+  },
+  "homepage": "https://github.com/batmanski88/MyWebsite",
+  "authors": [
+    "batmanski88 <bacior1988@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "wwwroot/lib",
+    "test",
+    "tests"
+  ]
+}
