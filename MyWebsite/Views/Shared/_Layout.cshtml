@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Marcin Łapiński - strona domowa</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <environment names="Development">
+                <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+                <link rel="stylesheet" href="~/app/site.css" />
+                <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+            </environment>
+            <environment names="Staging, Production">
+                <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+                <link rel="stylesheet" href="~/app/site.css" />
+            </environment>
+    </head>
+    <body>
+        <div class="bgded max-size" id="home">
+            <div class="navbar-fixed-top">
+                <div class="container">
+                    <nav class="navbar navbar-default" style="background-color: rgb(38, 39, 39); opacity: 0.8">
+                        <p class="navbar-text">
+                            Marcin Łapiński
+                        </p>
+                        <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsed" aria-expanded="false">
+                                    <span class="sr-only">Menu</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                        </div>  
+                        <div class="collapse navbar-collapse navbar-right" id="navbar-collapsed" >
+                            <ul class="nav navbar-nav">
+                                <li>
+                                    <a href="#home"><i class="fa fa-home fa-lg"></i>Home</a>
+                                </li>
+                                <li >
+                                    <a href="#about"><i class="fa fa-file-text fa-lg"></i>O mnie</a>
+                                </li>
+                                <li>
+                                    <a href="#skills"><i class="fa fa-star fa-lg"></i>Umiejętności</a>
+                                </li>
+                                <li>
+                                    <a href="#contact"><i class="fa fa-phone fa-lg"></i>Kontakt</a>
+                                </li>
+                                <li>
+                                    <a href="#">Blog</a>
+                                </li>
+                            </ul>
+                        </div> 
+                          
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="max-size well" id="about">
+            <div class="container">
+                <div class="border">
+                    <h2 style="text-align:center;">O mnie</h2>
+                </div>
+            </div>
+        </div>
+        <div class="max-size" id="skills">
+            <div class="container">
+                <h2 style="text-align:center; margin-top:50px;">Umiejętności</h2>
+            </div>
+        </div>
+        <div class="container">
+            @RenderBody()
+        </div>
+        <environment names="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/app/javascript.js"></script>
+        </environment>
+    </body>
+</html>

@@ -1,0 +1,9 @@
+/* BACKGROUND */
+.bgded{background-position: top center; background-repeat: no-repeat; background-size: cover; background-image:url("../../images/backgrounds/01.png")}
+.max-size{min-height: 955px; max-height: 955px; }
+
+/*FLOAT*/
+.fl-left{float: left}
+.fl-right{float: right}
+
+.border{margin: 10px; border-style: solid; border-width: 1px; border-color: silver; margin:40px; }
