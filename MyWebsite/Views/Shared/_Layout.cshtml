@@ -18,8 +18,8 @@
     <body>
         <div class="bgded max-size" id="home">
             <div class="navbar-fixed-top">
-                <div class="container">
-                    <nav class="navbar navbar-default" style="background-color: rgb(38, 39, 39); opacity: 0.8">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-default" style="background-color:aliceblue; opacity: 0.8">
                         <p class="navbar-text">
                             Marcin Łapiński
                         </p>
@@ -32,7 +32,7 @@
                                 </button>
                         </div>  
                         <div class="collapse navbar-collapse navbar-right" id="navbar-collapsed" >
-                            <ul class="nav navbar-nav">
+                            <ul class="nav navbar-nav nav-ul">
                                 <li>
                                     <a href="#home"><i class="fa fa-home fa-lg"></i>Home</a>
                                 </li>
@@ -55,16 +55,23 @@
                 </div>
             </div>
         </div>
-        <div class="max-size well" id="about">
+        <div class="max-size" id="about">
             <div class="container">
                 <div class="border">
                     <h2 style="text-align:center;">O mnie</h2>
                 </div>
             </div>
         </div>
-        <div class="max-size" id="skills">
+        <div class="max-size skills" id="skills">
             <div class="container">
-                <h2 style="text-align:center; margin-top:50px;">Umiejętności</h2>
+                <div class="border">
+                    <h2 style="text-align:center">Umiejętności</h2>
+                </div>
+            </div>
+        </div>
+        <div class="max-size" id="contact">
+            <div class="container">
+                @await Component.InvokeAsync("Contact");
             </div>
         </div>
         <div class="container">
