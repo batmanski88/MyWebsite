@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Mail;
 using MyWebsite.Models;
 
@@ -13,16 +14,17 @@ namespace MyWebsite.Services
 
         public void SendEmail(Contact Contact)
         {
-            MailMessage mail = new MailMessage("bacior1988@gmail.com", Contact.Email, Contact.Subject, Contact.Text);
-            SmtpClient client = new SmtpClient
-            {
-                Port = 25,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Host = "smtp.gmail.com"
-            };
-            
-            client.Send(mail);
+           SmtpClient client = new SmtpClient("smtp.gmail.com");
+           client.UseDefaultCredentials = false;
+           client.Credentials = new NetworkCredential("bacior1988@gmail.com" , "batman88");
+
+           MailMessage mail = new MailMessage();
+           mail.From = new MailAddress(Contact.Email);
+           mail.To.Add("bacior1988@gmail.com");
+           mail.Subject = Contact.Subject;
+           mail.Body = Contact.Text;
+
+           client.Send(mail);
         }
     }
 }

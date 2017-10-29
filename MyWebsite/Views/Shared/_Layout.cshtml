@@ -55,28 +55,10 @@
                 </div>
             </div>
         </div>
-        <div class="max-size" id="about">
-            <div class="container">
-                <div class="border">
-                    <h2 style="text-align:center;">O mnie</h2>
-                </div>
-            </div>
-        </div>
-        <div class="max-size skills" id="skills">
-            <div class="container">
-                <div class="border">
-                    <h2 style="text-align:center">Umiejętności</h2>
-                </div>
-            </div>
-        </div>
-        <div class="max-size" id="contact">
-            <div class="container">
-                @await Component.InvokeAsync("Contact");
-            </div>
-        </div>
-        <div class="container">
+       
+        
             @RenderBody()
-        </div>
+        
         <environment names="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
