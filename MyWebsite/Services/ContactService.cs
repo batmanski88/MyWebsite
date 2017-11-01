@@ -1,5 +1,5 @@
-using System.Net;
-using System.Net.Mail;
+using MailKit.Net.Smtp;
+using MimeKit;
 using MyWebsite.Models;
 
 namespace MyWebsite.Services
@@ -7,24 +7,24 @@ namespace MyWebsite.Services
     public class ContactService : IContactService
     {   
         
-        public ContactService()
-        {
-
-        }
-
         public void SendEmail(Contact Contact)
         {
-           SmtpClient client = new SmtpClient("smtp.gmail.com");
-           client.UseDefaultCredentials = false;
-           client.Credentials = new NetworkCredential("bacior1988@gmail.com" , "batman88");
+          var mimeMessage = new MimeMessage();
+          mimeMessage.From.Add(new MailboxAddress(Contact.FromEmail));
+          mimeMessage.To.Add(new MailboxAddress("bacior1988@gmail.com"));
+          mimeMessage.Subject = Contact.Subject;
+          mimeMessage.Body = new TextPart("plain")
+          {
+              Text = Contact.Text
+          };
 
-           MailMessage mail = new MailMessage();
-           mail.From = new MailAddress(Contact.Email);
-           mail.To.Add("bacior1988@gmail.com");
-           mail.Subject = Contact.Subject;
-           mail.Body = Contact.Text;
-
-           client.Send(mail);
+          using(var client = new SmtpClient())
+          {
+              client.Connect("smtp.gmail.com", 587, false);
+              client.Authenticate("bacior1988@gmail.com", "batman88");
+              client.Send(mimeMessage);
+              client.Disconnect(true);
+          }
         }
     }
 }
