@@ -17,25 +17,25 @@
 <section class="max-size" id="contact">
     <div class="container">
         <div class="row margins">
-            <form class="form-horizontal col-md-12" method="post" asp-controller="Home" asp-action="SendEmail" id="data-form">
+            <form class="form-horizontal col-md-12" method="post" asp-controller="Home" asp-action="Index" id="data-form">
                 <div class="col-md-6 form-group">
                     <label asp-for="FromEmail" class="col-md-2">Email: </label>
                     <div class="col-md-10">
-                        <input type="text" asp-for="FromEmail" class="form-control"/>
+                        <input type="text" asp-for="FromEmail" class="form-control" name="FromEmail"/>
                         <span asp-validation-for="FromEmail"></span>
                     </div>
                 </div>
                 <div class="col-md-6 form-group">
                     <label asp-for="Subject" class="col-md-2">Temat: </label>
                     <div class="col-md-10">
-                        <input type="text" asp-for="Subject" class="form-control"/>
+                        <input type="text" asp-for="Subject" class="form-control" name="Subject"/>
                         <span asp-validation-for="Subject"></span>
                     </div>
                 </div>
                 <div class="col-md-12 form-group">
                     <label asp-for="Text" class="col-md-12">Treść: </label>
                     <div class="col-md-12">
-                        <textarea asp-for="Text" rows="7" class="form-control"></textarea>
+                        <textarea asp-for="Text" rows="7" class="form-control" name="Text"></textarea>
                         <span asp-validation-for="Subject"></span>
                     </div>
                 </div>
@@ -53,18 +53,25 @@
         $(document).ready(function(){
             $('#data-form').submit(function(e){
                 e.preventDefault();
+                
+                var data = {
+                    FromEmail: $("input[name='FromEmail']", this).val(),
+                    Subject: $("input[name='Subject']", this).val(),
+                    Text: $("textarea[name='Text']", this).val()
+                }
+
+                alert(JSON.stringify(data));
+                console.log(JSON.stringify(data));
 
                 $.ajax({
-                    url: this.action,
-                    type: this.method,
-                    data: new FormData(this),
-                    cache: false,
-                    success: function(data){
-                        console.log(data + "Poprawnie wysłano formularz.");
-                    },
-                    error: function(xhr, error, status){
-                        console.log(error, status);
-                    }
+                    url: 'Index',
+                    type: 'post',
+                    dataType: 'json',
+                    data: data,
+                }).done(function(data, textStatus, jqXHR){
+                    console.log(data.result);
+                }).fail(function(jqXHR, textStatus, errorThrown){
+                    console.log("Nie wysłano danych");
                 });
             });
         });

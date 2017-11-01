@@ -11,7 +11,7 @@ namespace MyWebsite.Services
         {
           var mimeMessage = new MimeMessage();
           mimeMessage.From.Add(new MailboxAddress(Contact.FromEmail));
-          mimeMessage.To.Add(new MailboxAddress("bacior1988@gmail.com"));
+          mimeMessage.To.Add(new MailboxAddress("Marcin Łapiński", "bacior1988@gmail.com"));
           mimeMessage.Subject = Contact.Subject;
           mimeMessage.Body = new TextPart("plain")
           {
@@ -20,7 +20,8 @@ namespace MyWebsite.Services
 
           using(var client = new SmtpClient())
           {
-              client.Connect("smtp.gmail.com", 587, false);
+              client.Connect("smtp.gmail.com", 587);
+              client.AuthenticationMechanisms.Remove("XOAUTH2");
               client.Authenticate("bacior1988@gmail.com", "batman88");
               client.Send(mimeMessage);
               client.Disconnect(true);

@@ -13,18 +13,15 @@ namespace MyWebsite.Controllers
         {
             _contactService = contactService;
         }
-
+        
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult SendEmail()
-        {
-            return View();
-        }
-
-        public IActionResult SendEmail(Contact contact)
+        [HttpPost]
+        public IActionResult Index([FromForm]Contact contact)
         {
             if(ModelState.IsValid)
             {
