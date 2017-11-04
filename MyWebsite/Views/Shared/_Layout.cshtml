@@ -16,45 +16,45 @@
             </environment>
     </head>
     <body>
-        <div class="bgded max-size" id="home">
-            <div class="navbar-fixed-top">
-                <div class="container-fluid">
-                    <nav class="navbar navbar-default" style="background-color:aliceblue; opacity: 0.8">
-                        <p class="navbar-text">
-                            Marcin Łapiński
-                        </p>
-                        <div class="navbar-header">
+        
+        <section class="bgded max-size" id="home">
+           
+                    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgb(0, 174, 255);" role="navigation"   >
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <p class="navbar-text fl-left" style="color:white; font-size:15px;">
+                                Marcin Łapiński
+                                </p>
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsed" aria-expanded="false">
                                     <span class="sr-only">Menu</span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                        </div>  
-                        <div class="collapse navbar-collapse navbar-right" id="navbar-collapsed" >
-                            <ul class="nav navbar-nav nav-ul">
-                                <li>
-                                    <a href="#home"><i class="fa fa-home fa-lg"></i>Home</a>
-                                </li>
-                                <li >
-                                    <a href="#about"><i class="fa fa-file-text fa-lg"></i>O mnie</a>
-                                </li>
-                                <li>
-                                    <a href="#skills"><i class="fa fa-star fa-lg"></i>Umiejętności</a>
-                                </li>
-                                <li>
-                                    <a href="#contact"><i class="fa fa-phone fa-lg"></i>Kontakt</a>
-                                </li>
-                                <li>
-                                    <a href="#">Blog</a>
-                                </li>
-                            </ul>
+                            </div>  
+                            <div class="collapse navbar-collapse navbar-right" id="navbar-collapsed" >
+                                <ul class="nav navbar-nav nav-ul">
+                                    <li class="nav-item">
+                                        <a href="#home" class="ali" style="color:white"><i class="fa fa-home fa-lg"></i>Home</a>
+                                    </li>
+                                    <li >
+                                        <a href="#about" class="ali" style="color:white"><i class="fa fa-file-text fa-lg"></i>O mnie</a>
+                                    </li>
+                                    <li>
+                                        <a href="#skills" class="ali" style="color:white"><i class="fa fa-star fa-lg"></i>Umiejętności</a>
+                                    </li>
+                                    <li>
+                                        <a href="#contact" class="ali" style="color:white"><i class="fa fa-phone fa-lg"></i>Kontakt</a>
+                                    </li>
+                                   
+                                </ul>
+                            </div> 
                         </div> 
-                          
                     </nav>
-                </div>
-            </div>
-        </div>
+                
+            
+            </section>
+    
         @RenderBody()
         <environment names="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>

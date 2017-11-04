@@ -11,9 +11,8 @@ html{height: 100%;}
 
 .border{border-style: solid; border-width: 1px; border-color: silver;}
 
-.nav-ul{ display: inline-block}
-.nav-ul li a{color: white;}
-.nav-ul li i{color: gold;}
+.ali:hover{font-size: 20px;}
+.nav-ul li a i{color: white;}
 
 .skills{background-color: aqua}
 
