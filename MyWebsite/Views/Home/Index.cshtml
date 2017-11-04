@@ -17,26 +17,27 @@
 <section class="max-size" id="contact">
     <div class="container">
         <div class="row margins">
-            <form class="form-horizontal col-md-12" method="post" asp-controller="Home" asp-action="Index" id="data-form">
+            <h2 style="text-align:center;">Zapraszam do kontaktu</h2>
+            <form class="form-horizontal col-md-12" method="post" asp-controller="Home" asp-action="Index" id="data-form" data-ajax="true" >
                 <div class="col-md-6 form-group">
-                    <label asp-for="FromEmail" class="col-md-2">Email: </label>
+                    <label asp-for="FromEmail" class="col-md-2"></label>
                     <div class="col-md-10">
                         <input type="text" asp-for="FromEmail" class="form-control" name="FromEmail"/>
-                        <span asp-validation-for="FromEmail"></span>
+                        <span asp-validation-for="FromEmail" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6 form-group">
-                    <label asp-for="Subject" class="col-md-2">Temat: </label>
+                    <label asp-for="Subject" class="col-md-2"></label>
                     <div class="col-md-10">
                         <input type="text" asp-for="Subject" class="form-control" name="Subject"/>
-                        <span asp-validation-for="Subject"></span>
+                        <span asp-validation-for="Subject" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-12 form-group">
-                    <label asp-for="Text" class="col-md-12">Treść: </label>
+                    <label asp-for="Text" class="col-md-2"></label>
                     <div class="col-md-12">
                         <textarea asp-for="Text" rows="7" class="form-control" name="Text"></textarea>
-                        <span asp-validation-for="Subject"></span>
+                        <span asp-validation-for="Text" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -49,6 +50,8 @@
 
 @section Scripts
 {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
     <script>
         $(document).ready(function(){
             $('#data-form').submit(function(e){
@@ -59,10 +62,7 @@
                     Subject: $("input[name='Subject']", this).val(),
                     Text: $("textarea[name='Text']", this).val()
                 }
-
-                alert(JSON.stringify(data));
-                console.log(JSON.stringify(data));
-
+                
                 $.ajax({
                     url: 'Index',
                     type: 'post',

@@ -26,9 +26,10 @@ namespace MyWebsite.Controllers
             if(ModelState.IsValid)
             {
                 _contactService.SendEmail(contact);
+                ModelState.Clear();
             }
 
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }

@@ -1,7 +1,10 @@
 {
   "name": "MyWebsite",
   "dependencies": {
-    "bootstrap": "3.3.7"
+    "bootstrap": "3.3.7",
+    "jquery-validation": "1.14.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "Microsoft.jQuery.Unobtrusive.Ajax": "~3.2.3"
   },
   "homepage": "https://github.com/batmanski88/MyWebsite",
   "authors": [
@@ -11,7 +14,8 @@
   "main": "",
   "moduleType": [
     "amd",
-    "node"
+    "node",
+    "yui"
   ],
   "license": "MIT",
   "private": true,

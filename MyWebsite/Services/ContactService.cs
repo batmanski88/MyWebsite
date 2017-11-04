@@ -1,5 +1,6 @@
-using MailKit.Net.Smtp;
-using MimeKit;
+
+using System.Net;
+using System.Net.Mail;
 using MyWebsite.Models;
 
 namespace MyWebsite.Services
@@ -9,23 +10,24 @@ namespace MyWebsite.Services
         
         public void SendEmail(Contact Contact)
         {
-          var mimeMessage = new MimeMessage();
-          mimeMessage.From.Add(new MailboxAddress(Contact.FromEmail));
-          mimeMessage.To.Add(new MailboxAddress("Marcin Łapiński", "bacior1988@gmail.com"));
-          mimeMessage.Subject = Contact.Subject;
-          mimeMessage.Body = new TextPart("plain")
-          {
-              Text = Contact.Text
-          };
+            SmtpClient client = new SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("bacior1988@gmail.com", "batman88")
+            };
+            
 
-          using(var client = new SmtpClient())
-          {
-              client.Connect("smtp.gmail.com", 587);
-              client.AuthenticationMechanisms.Remove("XOAUTH2");
-              client.Authenticate("bacior1988@gmail.com", "batman88");
-              client.Send(mimeMessage);
-              client.Disconnect(true);
-          }
+            MailMessage message = new MailMessage();
+            message.From = new MailAddress(Contact.FromEmail);
+            message.To.Add("bacior1988@gmail.com");
+            message.Subject = Contact.Subject;
+            message.Body = Contact.Text;
+
+            client.Send(message);
         }
     }
 }
