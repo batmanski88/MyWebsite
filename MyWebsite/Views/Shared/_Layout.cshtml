@@ -8,7 +8,7 @@
                 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
                 <link rel="stylesheet" href="~/app/site.css" />
                 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+                <link rel="stylesheet" href="animate.min.css">
             </environment>
             <environment names="Staging, Production">
                 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -18,12 +18,16 @@
     <body>
         
         <section class="bgded max-size" id="home">
-           
-                    <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgb(0, 174, 255);" role="navigation"   >
+            <div class="contaier">
+                
+                    <p id="first-p" hidden>Witam na mojej stronie</p>
+                
+            </div>
+            <nav class="navbar navbar-default navbar-fixed-top" style="background-color: rgb(0, 174, 255); opacity: 0.9;" role="navigation"   >
                         <div class="container-fluid">
                             <div class="navbar-header">
-                                <p class="navbar-text fl-left" style="color:white; font-size:15px;">
-                                Marcin Łapiński
+                                <p class="navbar-text fl-left" style="color:white; font-size:15px; font-weight:bold;">
+                                    Marcin Łapiński
                                 </p>
                                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsed" aria-expanded="false">
                                     <span class="sr-only">Menu</span>
@@ -35,25 +39,24 @@
                             <div class="collapse navbar-collapse navbar-right" id="navbar-collapsed" >
                                 <ul class="nav navbar-nav nav-ul">
                                     <li class="nav-item">
-                                        <a href="#home" class="ali" style="color:white"><i class="fa fa-home fa-lg"></i>Home</a>
+                                        <a href="#home" class="ali" style="color:white; font-weight:bold;"><i class="fa fa-home fa-lg"></i>Home</a>
                                     </li>
                                     <li >
-                                        <a href="#about" class="ali" style="color:white"><i class="fa fa-file-text fa-lg"></i>O mnie</a>
+                                        <a href="#about" class="ali" style="color:white; font-weight:bold;"><i class="fa fa-file-text fa-lg"></i>O mnie</a>
                                     </li>
                                     <li>
-                                        <a href="#skills" class="ali" style="color:white"><i class="fa fa-star fa-lg"></i>Umiejętności</a>
+                                        <a href="#skills" class="ali" style="color:white; font-weight:bold;"><i class="fa fa-star fa-lg"></i>Umiejętności</a>
                                     </li>
                                     <li>
-                                        <a href="#contact" class="ali" style="color:white"><i class="fa fa-phone fa-lg"></i>Kontakt</a>
+                                        <a href="#contact" class="ali" style="color:white; font-weight:bold;"><i class="fa fa-phone fa-lg"></i>Kontakt</a>
                                     </li>
                                    
                                 </ul>
                             </div> 
                         </div> 
-                    </nav>
-                
+            </nav>
             
-            </section>
+        </section>
     
         @RenderBody()
         <environment names="Development">
